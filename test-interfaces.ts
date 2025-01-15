@@ -47,6 +47,37 @@ const shoes: Product ={
     name: "red shoes",
     price: 100,
     applyDiscount(amount: number){
-        return this.price * amount;
+        let newPrice =  this.price * amount;
+        this.price = newPrice;
+        return newPrice;
     }
 }
+
+// re-open interface (combine)
+interface A {
+    Astring: string;
+}
+
+interface A {
+    Bstring: string;
+}
+
+const testAInterface: A ={
+    Astring: "here",
+    Bstring: "there"
+}
+
+
+// Extend interface
+interface ServiceDog extends Dog {
+    job?: string
+}
+
+const chewy: ServiceDog = {
+    breed: "lab",
+    job:"drug sniffer"
+}
+
+//
+// Can extend multiple interfaces
+// interface Engineer extends Person, Employee {}
